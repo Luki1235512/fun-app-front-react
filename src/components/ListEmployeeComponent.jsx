@@ -19,7 +19,7 @@ class ListEmployeeComponent extends Component {
     render() {
         return (
             <div>
-                <h2 className="text-center">Employees List></h2>
+                <h2 className="text-center">Employees List</h2>
                 <div className="row">
                     <table className="table table-striped table-bordered">
                         <thead>
