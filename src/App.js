@@ -6,6 +6,7 @@ import FooterComponent from "./header/FooterComponent";
 import CreateEmployeeComponent from "./employee/components/CreateEmployeeComponent";
 import UpdateEmployeeComponent from "./employee/components/UpdateEmployeeComponent";
 import ViewEmployeeComponent from "./employee/components/ViewEmployeeComponent";
+import testComponent from "./game/main";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
                       <Route path = "/add-employee" component = {CreateEmployeeComponent}/>
                       <Route path = "/update-employee/:id" component = {UpdateEmployeeComponent}/>
                       <Route path = "/view-employee/:id" component = {ViewEmployeeComponent}/>
+                      <Route path = "/game" component = {testComponent}/>
                   </Switch>
               </div>
               <FooterComponent />
