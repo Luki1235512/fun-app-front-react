@@ -1,11 +1,11 @@
 import './App.css';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import ListEmployeeComponent from "./components/ListEmployeeComponent";
-import HeaderComponent from "./components/HeaderComponent";
-import FooterComponent from "./components/FooterComponent";
-import CreateEmployeeComponent from "./components/CreateEmployeeComponent";
-import UpdateEmployeeComponent from "./components/UpdateEmployeeComponent";
-import ViewEmployeeComponent from "./components/ViewEmployeeComponent";
+import ListEmployeeComponent from "./employee/components/ListEmployeeComponent";
+import HeaderComponent from "./header/HeaderComponent";
+import FooterComponent from "./header/FooterComponent";
+import CreateEmployeeComponent from "./employee/components/CreateEmployeeComponent";
+import UpdateEmployeeComponent from "./employee/components/UpdateEmployeeComponent";
+import ViewEmployeeComponent from "./employee/components/ViewEmployeeComponent";
 
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
               <HeaderComponent />
               <div className="container">
                   <Switch>
-                      <Route path = "/" exact component = {ListEmployeeComponent}/>
+                      <Route path = "/" exact />
                       <Route path = "/employees" component = {ListEmployeeComponent}/>
                       <Route path = "/add-employee" component = {CreateEmployeeComponent}/>
                       <Route path = "/update-employee/:id" component = {UpdateEmployeeComponent}/>

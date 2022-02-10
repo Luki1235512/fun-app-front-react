@@ -13,7 +13,8 @@ class HeaderComponent extends Component {
                 <header>
                     <nav className="navbar navbar-expand-md navbar-dark bg-dark">
                         <div>
-                            <a href="http://localhost:3000" className="navbar-brand">Fun App</a>
+                            <a href="https://fun-app-19ltju.herokuapp.com" className="navbar-brand">Fun App</a>
+                            |&nbsp;
                         </div>
                     </nav>
                 </header>
