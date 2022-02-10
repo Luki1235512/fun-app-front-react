@@ -14,7 +14,8 @@ class HeaderComponent extends Component {
                     <nav className="navbar navbar-expand-md navbar-dark bg-dark">
                         <div>
                             <a href="https://fun-app-19ltju.herokuapp.com" className="navbar-brand">Fun App</a>
-                            |&nbsp;
+                            | &nbsp;
+                            <a href="https://fun-app-19ltju.herokuapp.com/employees" className="navbar-brand">Employees</a>
                         </div>
                     </nav>
                 </header>
