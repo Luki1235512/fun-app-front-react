@@ -21,7 +21,7 @@ function App() {
                       <Route path = "/add-employee" component = {CreateEmployeeComponent}/>
                       <Route path = "/update-employee/:id" component = {UpdateEmployeeComponent}/>
                       <Route path = "/view-employee/:id" component = {ViewEmployeeComponent}/>
-                      <Route path = "/game" component = {testComponent}/>
+                      {/*<Route path = "/game" component = {testComponent}/>*/}
                   </Switch>
               </div>
               <FooterComponent />
