@@ -16,8 +16,8 @@ class mainComponent extends Component {
     render() {
         return (
             <Canvas>
-                <Scene />
-                <Controls />
+                {/*<Scene />*/}
+                {/*<Controls />*/}
             </Canvas>
         );
     }
