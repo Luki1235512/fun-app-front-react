@@ -53,7 +53,7 @@ function PoolTable() {
     return (
         <object3D position={[0, 0, -1]}>
             {/* mesh for the playing area */}
-            <mesh receiveShadow>
+            <mesh>
                 <boxGeometry attach='geometry' args={[24, 48, 1]} />
                 <meshStandardMaterial
                     attach='material'
