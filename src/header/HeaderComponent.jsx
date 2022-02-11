@@ -17,8 +17,8 @@ class HeaderComponent extends Component {
                             | &nbsp;
                             <a href="https://fun-app-19ltju.herokuapp.com/employees" className="navbar-brand">Employees</a>
                             | &nbsp;
-                            {/*<a href="https://fun-app-19ltju.herokuapp.com/game" className="navbar-brand">Game</a>*/}
-                            <a href="http://localhost:3000/game" className="navbar-brand">Game</a>
+                            <a href="https://fun-app-19ltju.herokuapp.com/game" className="navbar-brand">Game</a>
+                            {/*<a href="http://localhost:3000/game" className="navbar-brand">Game</a>*/}
                         </div>
                     </nav>
                 </header>
