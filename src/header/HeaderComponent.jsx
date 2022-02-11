@@ -23,7 +23,7 @@ class HeaderComponent extends Component {
                             <a href={developURL + "/employees"} className="navbar-brand">Employees</a>
                             {/*<a href={localURL + "/employees"} className="navbar-brand">Employees</a>*/}
                             | &nbsp;
-                            <a href={developURL + "/employees"} className="navbar-brand">Employees</a>
+                            <a href={developURL + "/game"} className="navbar-brand">Game</a>
                             {/*<a href={localURL + "/game"} className="navbar-brand">Game</a>*/}
                         </div>
                     </nav>
