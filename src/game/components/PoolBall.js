@@ -2,11 +2,11 @@ import React, {useMemo} from "react";
 import PropTypes from 'prop-types'
 import {TextureLoader, Vector2} from "three";
 
-function PoolBall({setRef, position, textureURL}) {
+function PoolBall({position, textureURL}) {
     const ballTexture = useMemo(() => new TextureLoader().load(textureURL), [textureURL])
 
     return (
-        <mesh ref={setRef} position={position} speed={new Vector2()} castShadow>
+        <mesh ref={React.createRef()} position={position} speed={new Vector2()}>
             <sphereGeometry attach='geometry' args={[0.5, 128, 128]}/>
             <meshStandardMaterial
                 attach='material'
@@ -20,13 +20,13 @@ function PoolBall({setRef, position, textureURL}) {
 }
 
 PoolBall.propTypes = {
-    setRef: PropTypes.objectOf(PropTypes.any),
+    // setRef: PropTypes.objectOf(PropTypes.any),
     position: PropTypes.arrayOf(PropTypes.number),
     textureURL: PropTypes.string
 }
 
 PoolBall.defaultProps = {
-    setRef: {},
+    // setRef: {},
     position: [],
     textureURL: ''
 }

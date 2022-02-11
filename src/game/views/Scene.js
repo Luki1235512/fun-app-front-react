@@ -41,8 +41,8 @@ function Scene() {
                 intensity={0.2}
                 position={[0, 0, 0]}
             />
-            {[[-5, -12, 20], [5, -12, 20], [-5, 12, 20], [5, 12, 20]].map(pos => (
-                <Lights
+            {[[-5, -12, 20], [5, -12, 20], [-5, 12, 20], [5, 12, 20]].map((pos, index) => (
+                <Lights key={index}
                     type='PointLight'
                     color={0xffffff}
                     intensity={0.4}
