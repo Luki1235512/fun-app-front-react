@@ -17,14 +17,14 @@ class HeaderComponent extends Component {
                 <header>
                     <nav className="navbar navbar-expand-md navbar-dark bg-dark">
                         <div>
-                            <a href={developURL} className="navbar-brand">Fun App</a>
-                            {/*<a href={localURL} className="navbar-brand">Fun App</a>*/}
+                            {/*<a href={developURL} className="navbar-brand">Fun App</a>*/}
+                            <a href={localURL} className="navbar-brand">Fun App</a>
                             | &nbsp;
-                            <a href={developURL + "/employees"} className="navbar-brand">Employees</a>
-                            {/*<a href={localURL + "/employees"} className="navbar-brand">Employees</a>*/}
+                            {/*<a href={developURL + "/employees"} className="navbar-brand">Employees</a>*/}
+                            <a href={localURL + "/employees"} className="navbar-brand">Employees</a>
                             | &nbsp;
-                            <a href={developURL + "/game"} className="navbar-brand">Game</a>
-                            {/*<a href={localURL + "/game"} className="navbar-brand">Game</a>*/}
+                            {/*<a href={developURL + "/game"} className="navbar-brand">Game</a>*/}
+                            <a href={localURL + "/game"} className="navbar-brand">Game</a>
                         </div>
                     </nav>
                 </header>
