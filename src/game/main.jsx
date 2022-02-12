@@ -14,10 +14,11 @@ class mainComponent extends Component {
 
     render() {
         return (
-            <Canvas>
-                <Scene />
-                {/*<Controls />*/}
-            </Canvas>
+            <h1>:)</h1>
+            // <Canvas>
+            //     <Scene />
+            //     {/*<Controls />*/}
+            // </Canvas>
         );
     }
 }
