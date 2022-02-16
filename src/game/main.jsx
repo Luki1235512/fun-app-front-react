@@ -1,6 +1,4 @@
 import React, {Component} from 'react';
-import {Canvas} from "react-three-fiber";
-import Scene from "./views/Scene";
 
 class mainComponent extends Component {
     constructor(props) {
@@ -11,14 +9,12 @@ class mainComponent extends Component {
     }
 
 
-    //
-    // render() {
-    //     // return (
-    //     //     // <Canvas>
-    //     //     //     <Scene />
-    //     //     // </Canvas>
-    //     // );
-    // }
+
+    render() {
+        return (
+            <p>:)</p>
+        );
+    }
 }
 
 export default mainComponent;
