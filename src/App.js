@@ -6,7 +6,7 @@ import FooterComponent from "./header/FooterComponent";
 import CreateEmployeeComponent from "./employee/components/CreateEmployeeComponent";
 import UpdateEmployeeComponent from "./employee/components/UpdateEmployeeComponent";
 import ViewEmployeeComponent from "./employee/components/ViewEmployeeComponent";
-import mainComponent from "./game/main";
+import mainComponent from "./game/mainComponent";
 import { Route } from "wouter";
 
 
