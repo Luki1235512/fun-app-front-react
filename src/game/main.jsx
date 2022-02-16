@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Canvas} from "react-three-fiber";
 
 class mainComponent extends Component {
     constructor(props) {
@@ -12,9 +13,9 @@ class mainComponent extends Component {
 
     render() {
         return (
-            <canvas>
+            <Canvas>
                 <p>:)</p>
-            </canvas>
+            </Canvas>
         );
     }
 }
