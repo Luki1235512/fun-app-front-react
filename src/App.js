@@ -7,7 +7,6 @@ import CreateEmployeeComponent from "./employee/components/CreateEmployeeCompone
 import UpdateEmployeeComponent from "./employee/components/UpdateEmployeeComponent";
 import ViewEmployeeComponent from "./employee/components/ViewEmployeeComponent";
 // import {Canvas} from "@react-three/fiber";
-import main from "./game/main";
 
 
 function App() {
