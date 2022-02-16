@@ -22,9 +22,6 @@ function App() {
                       <Route path = "/add-employee" component = {CreateEmployeeComponent}/>
                       <Route path = "/update-employee/:id" component = {UpdateEmployeeComponent}/>
                       <Route path = "/view-employee/:id" component = {ViewEmployeeComponent}/>
-                      <Canvas>
-                          <Route path = "/game" component = {mainComponent}/>
-                      </Canvas>
                       {/*<Route path = "/game" component = {mainComponent}/>*/}
                   </Switch>
               </div>

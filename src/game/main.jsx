@@ -11,14 +11,11 @@ class mainComponent extends Component {
 
     }
 
-
-
     render() {
         return (
-            <Scene />
-            // <Canvas>
-            //
-            // </Canvas>
+            <Canvas>
+                <Scene />
+            </Canvas>
         );
     }
 }
