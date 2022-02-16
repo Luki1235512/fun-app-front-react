@@ -12,7 +12,9 @@ class mainComponent extends Component {
 
     render() {
         return (
-            <p>:)</p>
+            <canvas>
+                <p>:)</p>
+            </canvas>
         );
     }
 }
