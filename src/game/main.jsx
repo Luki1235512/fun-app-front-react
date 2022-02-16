@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Canvas} from "@react-three/fiber";
+import Scene from "./Scene";
 
 
 class mainComponent extends Component {
@@ -14,9 +15,10 @@ class mainComponent extends Component {
 
     render() {
         return (
-            <Canvas>
-
-            </Canvas>
+            <Scene />
+            // <Canvas>
+            //
+            // </Canvas>
         );
     }
 }
