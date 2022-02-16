@@ -23,7 +23,8 @@ function App() {
                       {/*<Route path = "/add-employee" component = {CreateEmployeeComponent}/>*/}
                       {/*<Route path = "/update-employee/:id" component = {UpdateEmployeeComponent}/>*/}
                       {/*<Route path = "/view-employee/:id" component = {ViewEmployeeComponent}/>*/}
-                      <Route path = "/game" component = {Scene}/>
+                      {/*<Route path = "/game" component = {Scene}/>*/}
+    <Scene/>
 
               {/*</div>*/}
               {/*<FooterComponent />*/}
