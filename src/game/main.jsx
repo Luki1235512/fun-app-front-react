@@ -14,7 +14,7 @@ class mainComponent extends Component {
     render() {
         return (
             <Canvas>
-                <Scene />
+                <Scene/>
             </Canvas>
         );
     }

@@ -13,7 +13,6 @@ import { Route } from "wouter";
 function App() {
   return (
       <div>
-          <Route path="/game" component={mainComponent} />
           {/*<Router>*/}
           {/*    <HeaderComponent />*/}
           {/*    <div className="container">*/}
