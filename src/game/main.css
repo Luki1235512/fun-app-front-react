@@ -1,0 +1,11 @@
+canvas {
+    margin: 0;
+    height: 90vh;
+    width: 100vh;
+    background-color: black;
+    display: block;
+}
+
+#root {
+    height: 100%;
+}
