@@ -8,7 +8,7 @@ const SpringTilesComponent = () => {
             <h1></h1>
             <div>
                 <a href="https://fun-app-19ltju.herokuapp.com/employees">
-                    <img src={emp} alt="Employees app" />
+                    <img src={emp} alt="Employees app" className="Tile__image"/>
                 </a>
             </div>
         </div>
