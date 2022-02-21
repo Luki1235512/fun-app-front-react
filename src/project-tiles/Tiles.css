@@ -18,17 +18,18 @@ h1 {
 
 .tile__image {
     width: 100%;
-}
-
-img {
-    /*margin: auto;*/
-    /*display: block;*/
     background-color: gray;
     padding: 20px 20px 20px 20px;
     border-radius: 25px;
 }
 
-img:hover {
+img {
+    /*margin: auto;*/
+    /*display: block;*/
+
+}
+
+.tile__image:hover {
     transform: scale(101%);
     transition: 0.1s;
 }
