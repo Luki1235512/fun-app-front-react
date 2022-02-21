@@ -12,8 +12,8 @@ const local = "http://localhost:3000"
 
 const navbarLinks = [
     // {url: "#", title: "Home"},
-    {url: local + "/employees", title: "SPRING"},
-    {url: "#", title: "THREE.JS"},
+    {url: master + "/employees", title: "SPRING"},
+    {url: "https://csb-85wqot.netlify.app", title: "THREE.JS"},
 ]
 
 function App() {

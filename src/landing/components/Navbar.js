@@ -12,7 +12,9 @@ const Navbar = ({navbarLinks}) => {
 
     return (
         <nav className="navbar">
-            <span className="navbar__logo">fun app</span>
+            <a href="https://fun-app-19ltju.herokuapp.com">
+                <span className="navbar__logo">fun app</span>
+            </a>
 
             {menuClicked ? <FiMenu size={25} className="navbar__menu" onClick={toggleMenuClick} />
                 : (<FiX size={25} className="navbar__menu" onClick={toggleMenuClick} />)}
