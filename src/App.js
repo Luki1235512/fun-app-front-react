@@ -6,14 +6,16 @@ import UpdateEmployeeComponent from "./employee/components/UpdateEmployeeCompone
 import ViewEmployeeComponent from "./employee/components/ViewEmployeeComponent";
 import LandingPageComponent from "./landing/components/LandingPageComponent";
 import Navbar from "./landing/components/Navbar";
+import SpringTilesComponent from "./project-tiles/SpringTilesComponent";
+import ThreeTilesComponent from "./project-tiles/ThreeTilesComponent";
 
 const master = "https://fun-app-19ltju.herokuapp.com"
 const local = "http://localhost:3000"
 
 const navbarLinks = [
     // {url: "#", title: "Home"},
-    {url: master + "/employees", title: "SPRING"},
-    {url: "https://csb-85wqot.netlify.app", title: "THREE.JS"},
+    {url: master + "/spring", title: "SPRING"},
+    {url: master + "/three", title: "THREE.JS"},
 ]
 
 function App() {
@@ -28,6 +30,8 @@ function App() {
                       <Route path = "/add-employee" component = {CreateEmployeeComponent}/>
                       <Route path = "/update-employee/:id" component = {UpdateEmployeeComponent}/>
                       <Route path = "/view-employee/:id" component = {ViewEmployeeComponent}/>
+                      <Route path = "/spring" component = {SpringTilesComponent}/>
+                      <Route path = "/three" component = {ThreeTilesComponent}/>
                       {/*<Route path = "/game" component = {testComponent}/>*/}
                   </Switch>
               {/*</div>*/}

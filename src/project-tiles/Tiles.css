@@ -1,0 +1,20 @@
+.tiles {
+    padding-top: 80px;
+}
+
+h1 {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+img {
+    margin: auto;
+    display: block;
+    background-color: gray;
+    padding: 20px 20px 20px 20px;
+}
+
+img:hover {
+    transform: scale(101%);
+    transition: 0.1s;
+}
