@@ -7,8 +7,8 @@ const ThreeTilesComponent = () => {
         <div className="tiles">
             <h1></h1>
             <div>
-                <a href="https://csb-85wqot.netlify.app">
-                    <img src={pool} alt="3D pool" className="Tile__image"/>
+                <a href="https://csb-85wqot.netlify.app" className="tile">
+                    <img src={pool} alt="3D pool" className="tile__image"/>
                 </a>
             </div>
         </div>
