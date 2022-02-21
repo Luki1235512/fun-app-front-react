@@ -12,6 +12,7 @@ h1 {
     display: block;
     background-color: gray;
     padding: 20px 20px 20px 20px;
+    border-radius: 25px;
 }
 
 .Tile__image:hover {
