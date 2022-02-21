@@ -1,9 +1,6 @@
 import './Navbar.css'
 import {useState} from "react";
 import {FiMenu, FiX} from "react-icons/fi";
-// import {FiMenu, Fix} from "react-icons/fi";
-
-// const navbarLinks = {}
 
 const Navbar = ({navbarLinks}) => {
 

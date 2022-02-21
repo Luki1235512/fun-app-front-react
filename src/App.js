@@ -11,8 +11,8 @@ const master = "https://fun-app-19ltju.herokuapp.com"
 const local = "http://localhost:3000"
 
 const navbarLinks = [
-    {url: "#", title: "Home"},
-    {url: {local} + "/employees", title: "SPRING"},
+    // {url: "#", title: "Home"},
+    {url: local + "/employees", title: "SPRING"},
     {url: "#", title: "THREE.JS"},
 ]
 

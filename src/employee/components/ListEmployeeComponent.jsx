@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import EmployeeService from "../services/EmployeeService";
+import './Employee.css'
 
 class ListEmployeeComponent extends Component {
     constructor(props) {
@@ -42,7 +43,7 @@ class ListEmployeeComponent extends Component {
 
     render() {
         return (
-            <div>
+            <div className="EmployeeTitle">
                 <h2 className="text-center">Employees List</h2>
                 <div className="row">
                     <button className="btn btn-primary" onClick={this.addEmployee}> Add Employee</button>

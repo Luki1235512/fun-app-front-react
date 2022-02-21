@@ -55,7 +55,7 @@ class UpdateEmployeeComponent extends Component {
 
     render() {
         return (
-            <div>
+            <div className="EmployeeTitle">
                 <div className="container">
                     <div className="row">
                         <div className="card col-md-6 offset-md-3 offset-md-3">
