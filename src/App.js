@@ -8,6 +8,7 @@ import LandingPageComponent from "./landing/components/LandingPageComponent";
 import Navbar from "./landing/components/Navbar";
 import SpringTilesComponent from "./project-tiles/SpringTilesComponent";
 import ThreeTilesComponent from "./project-tiles/ThreeTilesComponent";
+import GameMain from "./game/GameMain";
 
 const master = "https://fun-app-19ltju.herokuapp.com"
 const local = "http://localhost:3000"
@@ -32,7 +33,7 @@ function App() {
                       <Route path = "/view-employee/:id" component = {ViewEmployeeComponent}/>
                       <Route path = "/spring" component = {SpringTilesComponent}/>
                       <Route path = "/three" component = {ThreeTilesComponent}/>
-                      {/*<Route path = "/game" component = {testComponent}/>*/}
+                      <Route path = "/game" component = {GameMain}/>
                   </Switch>
               {/*</div>*/}
               {/*<FooterComponent />*/}
