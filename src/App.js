@@ -17,6 +17,7 @@ const navbarLinks = [
     // {url: "#", title: "Home"},
     {url: master + "/spring", title: "SPRING"},
     {url: master + "/three", title: "THREE.JS"},
+    {url: master + "/game", title: "JS GAME"},
 ]
 
 function App() {
