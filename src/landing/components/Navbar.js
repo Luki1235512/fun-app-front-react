@@ -13,23 +13,23 @@ const Navbar = ({navbarLinks}) => {
     return (
         <nav className="navbar">
             <a href="https://fun-app-19ltju.herokuapp.com">
-                <span className="navbar__logo">fun app</span>
+                <span className="navbar-logo">fun app</span>
             </a>
 
-            {menuClicked ? <FiMenu size={25} className="navbar__menu" onClick={toggleMenuClick} />
-                : (<FiX size={25} className="navbar__menu" onClick={toggleMenuClick} />)}
+            {menuClicked ? <FiMenu size={25} className="navbar-menu" onClick={toggleMenuClick} />
+                : (<FiX size={25} className="navbar-menu" onClick={toggleMenuClick} />)}
 
 
-            <ul className={menuClicked ? "navbar__list" : "navbar__list navbar__list--active"}>
+            <ul className={menuClicked ? "navbar-list" : "navbar-list navbar-list--active"}>
                 {navbarLinks.map((item) => {
                     return (
-                        <li className="navbar__item" key={item.title}>
-                        <a className="navbar__link" href={item.url}>
+                        <li className="navbar-item" key={item.title}>
+                        <a className="navbar-link" href={item.url}>
                             {item.title}
                         </a>
                     </li>
                     )}
-                )})
+                )}
             </ul>
         </nav>
     )

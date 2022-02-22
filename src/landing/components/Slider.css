@@ -14,11 +14,11 @@
     transition: 2s;
 }
 
-.slider__image {
+.slider-image {
     width: 60%;
 }
 
-.slider__content {
+.slider-content {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -28,7 +28,7 @@
     text-align: center;
 }
 
-.slider__title {
+.slider-title {
     text-align: center;
 }
 
@@ -38,7 +38,7 @@
         background-color: rgb(236, 236, 236);
     }
 
-    .slider__image {
+    .slider-image {
         width: 100%;
     }
 

@@ -16,23 +16,23 @@ a:hover {
     text-decoration: none;
 }
 
-.navbar__logo {
+.navbar-logo {
     color: white;
     font-size: 2.5rem;
     padding-bottom: 10px;
 }
 
-.navbar__list {
+.navbar-list {
     padding-top: 10px;
     display: flex;
     list-style: none;
 }
 
-.navbar__item {
+.navbar-item {
     white-space: nowrap;
 }
 
-.navbar__link {
+.navbar-link {
     font-size: 0.85rem;
     color: white;
     text-align: center;
@@ -45,21 +45,21 @@ a:hover {
     text-decoration: none;
 }
 
-.navbar__link:hover {
+.navbar-link:hover {
     border-color: white;
     transition: 250ms;
     color: white;
     text-decoration: none;
 }
 
-.navbar__menu {
+.navbar-menu {
     color: white;
     cursor: pointer;
     display: none;
 }
 
 @media screen and (max-width: 800px) {
-    .navbar__list {
+    .navbar-list {
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
@@ -72,11 +72,11 @@ a:hover {
         transition: all 0.5s;
     }
 
-    .navbar__list--active {
+    .navbar-list--active {
         left: 0;
     }
 
-    .navbar__item {
+    .navbar-item {
         width: 100%;
         display: flex;
         justify-content: center;
@@ -85,7 +85,7 @@ a:hover {
         flex: 1;
     }
 
-    .navbar__link {
+    .navbar-link {
         display: flex;
         height: 100%;
         width: 100%;
@@ -97,11 +97,11 @@ a:hover {
         opacity: 0.75;
     }
 
-    .navbar__link:hover {
+    .navbar-link:hover {
         opacity: 0.9;
     }
 
-    .navbar__menu {
+    .navbar-menu {
         display: block;
     }
 }
