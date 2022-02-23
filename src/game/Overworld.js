@@ -1,7 +1,9 @@
 import imageURL from './images/maps/DemoLower.png'
 import heroURL from './images/characters/people/hero.png'
 import shadowURL from './images/characters/shadow.png'
+import npc1URL from './images/characters/people/npc1.png'
 import {Component} from "react";
+import {GameObject} from "./GameObject";
 
 export class Overworld extends Component{
 
@@ -11,48 +13,27 @@ export class Overworld extends Component{
     }
 
     init() {
-        // console.log("Hello from the Overworld", this)
-
         const image = new Image()
         image.src = imageURL
         image.onload = () => {
             this.ctx.drawImage(image, 0, 0)
         }
 
-        const x = 5
-        const y = 6
+        const hero = new GameObject({
+            x: 5,
+            y: 6,
+        })
 
-        const shadow = new Image()
-        shadow.src = shadowURL
-        shadow.onload = () => {
-            this.ctx.drawImage(
-                shadow,
-                0,
-                0,
-                32,
-                32,
-                x * 16 - 8,
-                y * 16 - 18,
-                32,
-                32
-            )
-        }
+        const npc1 = new GameObject({
+            x: 7,
+            y: 9,
+            src: npc1URL
+        })
 
-        const hero = new Image()
-        hero.src = heroURL
-        hero.onload = () => {
-            this.ctx.drawImage(
-                hero,
-                0,
-                0,
-                32,
-                32,
-                x * 16 - 8,
-                y * 16 - 18,
-                32,
-                32
-            )
-        }
+        setTimeout(() => {
+            hero.sprite.draw(this.ctx)
+            npc1.sprite.draw(this.ctx)
+        }, 200)
 
     }
 }
