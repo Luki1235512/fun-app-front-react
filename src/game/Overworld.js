@@ -1,10 +1,9 @@
-import {Component} from "react";
 import {OverworldMap} from "./OverworldMap";
+import {DirectionInput} from "./DirectionInput";
 
-export class Overworld extends Component{
+export class Overworld {
 
     constructor(config) {
-        super(config);
         this.ctx = config
         this.map = null
     }
@@ -17,7 +16,9 @@ export class Overworld extends Component{
             this.map.drawLowerImage(this.ctx)
 
             Object.values(this.map.gameObjects).forEach(object => {
-                // object.x += 0.02
+                object.update({
+                    arrow: this.directionInput.direction()
+                })
                 object.sprite.draw(this.ctx)
             })
 
@@ -32,30 +33,13 @@ export class Overworld extends Component{
 
     init() {
 
-        this.map = new OverworldMap(window.OverworldMaps.Kitchen)
-        this.startGameLoop()
+        this.map = new OverworldMap(window.OverworldMaps.DemoRoom)
 
-        // const image = new Image()
-        // image.src = imageURL
-        // image.onload = () => {
-        //     this.ctx.drawImage(image, 0, 0)
-        // }
-        //
-        // const hero = new GameObject({
-        //     x: 5,
-        //     y: 6,
-        // })
-        //
-        // const npc1 = new GameObject({
-        //     x: 7,
-        //     y: 9,
-        //     src: npc1URL
-        // })
-        //
-        // setTimeout(() => {
-        //     hero.sprite.draw(this.ctx)
-        //     npc1.sprite.draw(this.ctx)
-        // }, 200)
+        this.directionInput = new DirectionInput()
+        this.directionInput.init()
+        this.directionInput.direction()
+
+        this.startGameLoop()
 
     }
 }

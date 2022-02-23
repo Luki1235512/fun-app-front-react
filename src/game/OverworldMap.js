@@ -1,4 +1,3 @@
-import {Component} from "react";
 import demoLowerURL from './images/maps/DemoLower.png'
 import demoUpperURL from './images/maps/DemoUpper.png'
 import kitchenLowerURL from './images/maps/KitchenLower.png'
@@ -6,11 +5,13 @@ import kitchenUpperURL from './images/maps/KitchenUpper.png'
 import {GameObject} from "./GameObject";
 import npc1URL from './images/characters/people/npc1.png'
 import npc2URL from './images/characters/people/npc2.png'
+import utils from "./utils";
+import {Person} from "./Person";
 
-export class OverworldMap extends Component {
+export class OverworldMap {
 
     constructor(config) {
-        super(config);
+        // super(config);
 
         this.gameObjects = config.gameObjects
 
@@ -35,13 +36,14 @@ window.OverworldMaps = {
         lowerSrc: demoLowerURL,
         upperSrc: demoUpperURL,
         gameObjects: {
-            hero: new GameObject({
-                x: 5,
-                y: 6
+            hero: new Person({
+                isPlayerControlled: true,
+                x: utils.withGrid(5),
+                y: utils.withGrid(6)
             }),
-            npc1: new GameObject({
-                x: 7,
-                y: 9,
+            npc1: new Person({
+                x: utils.withGrid(7),
+                y: utils.withGrid(9),
                 src: npc1URL
             })
         }

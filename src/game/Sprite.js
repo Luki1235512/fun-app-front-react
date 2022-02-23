@@ -1,10 +1,9 @@
 import {Component} from "react";
 import shadowURL from './images/characters/shadow.png'
 
-export class Sprite extends Component{
+export class Sprite {
 
     constructor(config) {
-        super(config);
 
         this.image = new Image()
         this.image.src = config.src
@@ -33,8 +32,8 @@ export class Sprite extends Component{
     }
 
     draw(ctx) {
-        const x = this.gameObject.x * 16 - 8
-        const y = this.gameObject.y * 16 - 18
+        const x = this.gameObject.x - 8
+        const y = this.gameObject.y - 18
 
         this.isShadowLoaded && ctx.drawImage(this.shadow, x, y)
 
