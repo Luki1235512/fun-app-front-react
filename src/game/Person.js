@@ -1,4 +1,5 @@
 import {GameObject} from "./GameObject";
+import utils from "./utils";
 
 export class Person extends GameObject {
     constructor(config) {
@@ -26,8 +27,8 @@ export class Person extends GameObject {
                     direction: state.arrow
                 })
             }
+            this.updateSprite(state)
         }
-        this.updateSprite(state)
     }
 
     startBehavior(state, behavior) {
@@ -38,14 +39,19 @@ export class Person extends GameObject {
             }
             state.map.moveWall(this.x, this.y, this.direction)
             this.movingProgressRemaining = 16
+            this.updateSprite(state)
         }
     }
 
     updatePosition() {
-        if (this.movingProgressRemaining > 0) {
-            const [property, change] = this.directionUpdate[this.direction]
-            this[property] += change
-            this.movingProgressRemaining -= 1
+        const [property, change] = this.directionUpdate[this.direction]
+        this[property] += change
+        this.movingProgressRemaining -= 1
+
+        if (this.movingProgressRemaining === 0) {
+            utils.emitEvent("PersonWalkingComplete", {
+                whoId: this.id
+            })
         }
     }
 
