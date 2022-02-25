@@ -17,12 +17,26 @@ export class Person extends GameObject {
     }
 
     update(state) {
-        // super.update(state);
-        this.updatePosition()
+        if (this.movingProgressRemaining > 0) {
+            this.updatePosition()
+        } else {
+            if (this.isPlayerControlled && state.arrow) {
+                this.startBehavior(state, {
+                    type: "walk",
+                    direction: state.arrow
+                })
+            }
+        }
         this.updateSprite(state)
+    }
 
-        if (this.isPlayerControlled && this.movingProgressRemaining === 0 && state.arrow) {
-            this.direction = state.arrow
+    startBehavior(state, behavior) {
+        this.direction = behavior.direction
+        if (behavior.type === "walk") {
+            if (state.map.isSpaceTaken(this.x, this.y, this.direction)) {
+                return
+            }
+            state.map.moveWall(this.x, this.y, this.direction)
             this.movingProgressRemaining = 16
         }
     }
@@ -35,14 +49,11 @@ export class Person extends GameObject {
         }
     }
 
-    updateSprite(state) {
-        if (this.isPlayerControlled && this.movingProgressRemaining === 0 && !state.arrow) {
-            this.sprite.setAnimation("idle-" + this.direction)
-            return
-        }
-
+    updateSprite() {
         if (this.movingProgressRemaining > 0) {
             this.sprite.setAnimation("walk-" + this.direction)
+            return
         }
+        this.sprite.setAnimation("idle-" + this.direction)
     }
 }

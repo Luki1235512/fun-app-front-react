@@ -4,8 +4,7 @@ import heroURL from './images/characters/people/hero.png'
 export class GameObject {
 
     constructor(config) {
-
-
+        this.isMounted = false
         this.x = config.x || 0
         this.y = config.y || 0
         this.direction = config.direction || "down"
@@ -13,6 +12,11 @@ export class GameObject {
             gameObject: this,
             src: config.src || heroURL,
         })
+    }
+
+    mount(map) {
+        this.isMounted = true
+        map.addWall(this.x, this.y)
     }
 
     update() {
