@@ -6,7 +6,23 @@ export class OverworldEvent {
     }
 
     stand(resolve) {
+        const who = this.map.gameObjects[this.event.who]
+        who.startBehavior({
+            map: this.map
+        }, {
+            type: "stand",
+            direction: this.event.direction,
+            time: this.event.time
+        })
 
+        const completeHandler = e => {
+            if (e.detail.whoId === this.event.who) {
+                document.removeEventListener("PersonStandComplete", completeHandler)
+                resolve()
+            }
+        }
+
+        document.addEventListener("PersonStandComplete", completeHandler)
     }
 
     walk(resolve) {
@@ -15,7 +31,8 @@ export class OverworldEvent {
             map: this.map
         }, {
             type: "walk",
-            direction: this.event.direction
+            direction: this.event.direction,
+            retry: true
         })
 
         const completeHandler = e => {

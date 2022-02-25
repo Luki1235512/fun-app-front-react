@@ -7,6 +7,7 @@ import npc1URL from './images/characters/people/npc1.png'
 import npc2URL from './images/characters/people/npc2.png'
 import utils from "./utils";
 import {Person} from "./Person";
+import {OverworldEvent} from "./OverworldEvent";
 
 export class OverworldMap {
 
@@ -51,6 +52,20 @@ export class OverworldMap {
         })
     }
 
+    async startCutscene(events) {
+        this.isCutscenePlaying = true
+
+        for (let i=0; i<events.length; i++) {
+            const eventHandler = new OverworldEvent({
+                event: events[i],
+                map: this,
+            })
+            await eventHandler.init()
+        }
+
+        this.isCutscenePlaying = false
+    }
+
     addWall(x, y) {
         this.walls[`${x},${y}`] = true
     }
@@ -93,7 +108,7 @@ window.OverworldMaps = {
                 src: npc2URL,
                 behaviorLoop: [
                     {type: "walk", direction: "left"},
-                    // {type: "stand", direction: "up", time: 800},
+                    {type: "stand", direction: "up", time: 800},
                     {type: "walk", direction: "up"},
                     {type: "walk", direction: "right"},
                     {type: "walk", direction: "down"},
