@@ -1,4 +1,5 @@
-import './GameMain.css'
+import './styles/GameMain.css'
+import './styles/TextMessage.css'
 import React from "react";
 import {Overworld} from "./Overworld";
 
@@ -10,8 +11,6 @@ const GameMain = () => {
         const canvas = canvasRef.current;
         if (!canvas) return;
         const ctx = canvas.getContext("2d");
-        // console.log("ddd", ctx)
-        // test(ctx)
         const game = new Overworld(ctx)
         game.init()
     });

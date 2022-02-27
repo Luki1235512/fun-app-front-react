@@ -1,5 +1,6 @@
 import {OverworldMap} from "./OverworldMap";
 import {DirectionInput} from "./DirectionInput";
+import {KeyPressListener} from "./KeyPressListener";
 
 export class Overworld {
 
@@ -39,11 +40,34 @@ export class Overworld {
         step()
     }
 
+    bindActionInput() {
+        new KeyPressListener("Enter", () => {
+            this.map.checkForActionCutscene()
+        })
+    }
+
+    bindHeroPositionCheck() {
+        document.addEventListener("PersonWalkingComplete", e => {
+            if (e.detail.whoId === "hero") {
+                // console.log("NEW HERO POS!")
+                this.map.checkForFootstepCutscene()
+            }
+        })
+    }
+
+    startMap(mapConfig) {
+        this.map = new OverworldMap(mapConfig)
+        this.map.overworld = this
+        this.map.mountObjects()
+    }
+
     init() {
 
-        this.map = new OverworldMap(window.OverworldMaps.DemoRoom)
-        this.map.mountObjects()
-        console.log(this.map.walls)
+        this.startMap(window.OverworldMaps.DemoRoom)
+        // console.log(this.map.walls)
+
+        this.bindActionInput()
+        this.bindHeroPositionCheck()
 
         this.directionInput = new DirectionInput()
         this.directionInput.init()
@@ -51,13 +75,14 @@ export class Overworld {
 
         this.startGameLoop()
 
-        this.map.startCutscene([
-            {who: "hero", type: "walk", direction: "down"},
-            {who: "hero", type: "walk", direction: "down"},
-            {who: "npcA", type: "walk", direction: "left"},
-            {who: "npcA", type: "walk", direction: "left"},
-            {who: "npcA", type: "stand", direction: "up", time: 800},
-        ])
+        // this.map.startCutscene([
+        //     {who: "hero", type: "walk", direction: "down"},
+        //     {who: "hero", type: "walk", direction: "down"},
+        //     {who: "npcA", type: "walk", direction: "up"},
+        //     {who: "npcA", type: "walk", direction: "left"},
+        //     {who: "hero", type: "stand", direction: "right", time: 200},
+        //     {type: "textMessage", text: "HELLO THERE"},
+        // ])
 
     }
 }
