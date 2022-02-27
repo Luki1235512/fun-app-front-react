@@ -4,6 +4,7 @@ import kitchenLowerURL from './images/maps/KitchenLower.png'
 import kitchenUpperURL from './images/maps/KitchenUpper.png'
 import npc1URL from './images/characters/people/npc1.png'
 import npc2URL from './images/characters/people/npc2.png'
+import npc3URL from './images/characters/people/npc3.png'
 import utils from "./utils";
 import {Person} from "./Person";
 import {OverworldEvent} from "./OverworldEvent";
@@ -189,7 +190,7 @@ window.OverworldMaps = {
             npcA: new Person({
                 x: utils.withGrid(10),
                 y: utils.withGrid(8),
-                src: npc1URL,
+                src: npc3URL,
                 talking: [
                     {
                         events: [
