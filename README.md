@@ -1,4 +1,4 @@
-Demo link - https://fun-app-19ltju.herokuapp.com/employees
+Demo link - https://fun-app-19ltju.herokuapp.com
 
 Spring-react application hosted on heroku that allows you to manage employees data from database
 
