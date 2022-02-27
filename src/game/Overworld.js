@@ -63,7 +63,7 @@ export class Overworld {
 
     init() {
 
-        this.startMap(window.OverworldMaps.Kitchen)
+        this.startMap(window.OverworldMaps.DemoRoom)
         // console.log(this.map.walls)
 
         this.bindActionInput()
@@ -75,9 +75,10 @@ export class Overworld {
 
         this.startGameLoop()
 
-        this.map.startCutscene([
-            {type: "textMessage", text: "This is the very first message!"},
-        ])
+        // this.map.startCutscene([
+            // {type: "changeMap", map: "DemoRoom"}
+            // {type: "textMessage", text: "This is the very first message!"},
+        // ])
 
     }
 }
