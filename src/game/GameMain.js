@@ -4,6 +4,7 @@ import './styles/SceneTransition.css'
 import './styles/Battle.css'
 import './styles/Combatant.css'
 import './styles/SubmissionMenu.css'
+import './styles/KeyboardMenu.css'
 import React from "react";
 import {Overworld} from "./Overworld";
 

@@ -90,7 +90,7 @@ export class Combatant {
     getPostEvents() {
         if (this.status?.type === "furious") {
             return [
-                {type: "textMessage", text: "Yare Yare Daze"},
+                {type: "textMessage", text: "*ANGRY NOISES*"},
                 {type: "stateChange", recover: 5, onCaster: true}
             ]
         }

@@ -32,21 +32,21 @@ const Stands = window.Stands = {
         type: StandTypes.water,
         src: w001URL,
         icon: waterURL,
-        actions: ["damage1"]
+        actions: ["tackledStatus", "damage1", "furiousStatus"]
     },
     "g001": {
         name: "Banana Thing",
         type: StandTypes.grass,
         src: g001URL,
         icon: grassURL,
-        actions: ["tackledStatus", "damage1"]
+        actions: ["tackledStatus", "damage1", "furiousStatus"]
     },
     "r001": {
         name: "Emerald Man",
         type: StandTypes.rock,
         src: r001URL,
         icon: rockURL,
-        actions: ["damage1"]
+        actions: ["tackledStatus", "damage1", "furiousStatus"]
     }
 }
 
