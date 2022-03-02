@@ -1,3 +1,5 @@
+import utils from "../utils";
+
 export class Combatant {
     constructor(config, battle) {
         Object.keys(config).forEach(key => {
@@ -73,6 +75,16 @@ export class Combatant {
             statusElement.style.display = "none"
         }
 
+    }
+
+    getReplacedEvents(originalEvents) {
+
+        if (this.status?.type === "tackled" && utils.randomFromArray([true, false, false])) {
+            return [
+                {type: "textMessage", text: `${this.name} can't move`}
+            ]
+        }
+        return originalEvents
     }
 
     getPostEvents() {
