@@ -1,6 +1,7 @@
 import {TextMessage} from "../TextMessage";
 import SubmissionMenu from "./SubmissionMenu";
 import utils from "../utils";
+import BattleAnimations from "./BattleAnimations";
 
 export default class BattleEvent {
     constructor(event, battle) {
@@ -46,6 +47,11 @@ export default class BattleEvent {
             }
         })
         menu.init(this.battle.element)
+    }
+
+    animation(resolve) {
+        const fn = BattleAnimations[this.event.animation]
+        fn(this.event, resolve)
     }
 
     init(resolve) {
