@@ -5,7 +5,6 @@ import Stands from '../content/stands'
 import TurnCycle from "./TurnCycle";
 import BattleEvent from "./BattleEvent";
 
-
 export class Battle {
     constructor() {
         this.combatants =  {
@@ -14,10 +13,10 @@ export class Battle {
                 team: "player",
                 hp: 30,
                 maxHp: 50,
-                xp: 70,
+                xp: 75,
                 maxXp: 100,
                 level: 1,
-                status: null,
+                status: {type: "furious"},
                 isPlayerControlled: true
             }, this),
             "enemy1": new Combatant({
@@ -43,6 +42,13 @@ export class Battle {
             player: "player1",
             enemy: "enemy1"
         }
+        this.items = [
+            {actionId: "item_recoverStatus", instanceId: "p1", team: "player"},
+            {actionId: "item_recoverStatus", instanceId: "p2", team: "player"},
+            {actionId: "item_recoverStatus", instanceId: "p3", team: "enemy"},
+
+            {actionId: "item_recoverHp", instanceId: "p4", team: "player"},
+        ]
     }
 
     createElement() {
