@@ -6,6 +6,14 @@ const Actions = window.Actions = {
             {type: "animation", animation: "spin"},
             {type: "stateChange", damage: 10},
         ]
+    },
+    furiousStatus: {
+        name: "Fury",
+        targetType: "friendly",
+        success: [
+            {type: "textMessage", text: "{CASTER} uses {ACTION}!"},
+            {type: "stateChange", status: {type: "furious", expiresIn: 3}},
+        ]
     }
 }
 

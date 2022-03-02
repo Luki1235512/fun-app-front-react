@@ -85,6 +85,22 @@ export class Combatant {
         return []
     }
 
+    decrementStatus() {
+        if (this.status?.expiresIn > 0) {
+            this.status.expiresIn -= 1
+            if (this.status.expiresIn === 0) {
+                this.update({
+                    status: null
+                })
+                return {
+                    type: "textMessage",
+                    text: "Status expired"
+                }
+            }
+        }
+        return null
+    }
+
     init(container) {
         this.createElement()
         container.appendChild(this.hudElement)

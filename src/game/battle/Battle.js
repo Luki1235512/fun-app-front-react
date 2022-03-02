@@ -17,10 +17,7 @@ export class Battle {
                 xp: 70,
                 maxXp: 100,
                 level: 1,
-                status: {
-                    type: "furious",
-                    expiresIn: 3
-                }
+                status: null
             }, this),
             "enemy1": new Combatant({
                 ...Stands.g001,
