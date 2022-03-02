@@ -1,8 +1,6 @@
 Demo link - https://fun-app-19ltju.herokuapp.com
 
-Spring-react application hosted on heroku that allows you to manage employees data from database
-
-![empl](https://user-images.githubusercontent.com/49656590/154470082-d43c9c05-f8cb-4985-ba84-d500a310b262.png)
+Spring-react application hosted on heroku, place where I am learning javascript
 
 It can take a few seconds to load and then another few for the database to load
 
