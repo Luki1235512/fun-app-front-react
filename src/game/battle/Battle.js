@@ -16,7 +16,18 @@ export class Battle {
                 xp: 75,
                 maxXp: 100,
                 level: 1,
-                status: {type: "furious"},
+                status: null,
+                isPlayerControlled: true
+            }, this),
+            "player2": new Combatant({
+                ...Stands.f001,
+                team: "player",
+                hp: 30,
+                maxHp: 50,
+                xp: 75,
+                maxXp: 100,
+                level: 1,
+                status: null,
                 isPlayerControlled: true
             }, this),
             "enemy1": new Combatant({

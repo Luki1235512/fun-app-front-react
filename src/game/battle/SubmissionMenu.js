@@ -2,9 +2,10 @@ import Actions from "../content/actions";
 import KeyboardMenu from "../KeyboardMenu";
 
 export default class SubmissionMenu {
-    constructor({caster, enemy, onComplete, items}) {
+    constructor({caster, enemy, onComplete, items, replacements}) {
         this.caster = caster
         this.enemy = enemy
+        this.replacements = replacements
         this.onComplete = onComplete
 
         let quantityMap = {}
@@ -58,7 +59,7 @@ export default class SubmissionMenu {
                     label: "Swap",
                     description: "Change stand",
                     handler: () => {
-
+                        this.keyboardMenu.setOptions(this.getPages().replacements)
                     }
                 }
             ],
@@ -90,8 +91,27 @@ export default class SubmissionMenu {
                     }
                 }),
                 backOption
+            ],
+            replacements: [
+                ...this.replacements.map(replacement => {
+                    return {
+                        label: replacement.name,
+                        description: replacement.description,
+                        handler: () => {
+                            this.menuSubmitReplacement(replacement)
+                        }
+                    }
+                }),
+                backOption
             ]
         }
+    }
+
+    menuSubmitReplacement(replacement) {
+        this.keyboardMenu?.end()
+        this.onComplete({
+            replacement
+        })
     }
 
     menuSubmit(action, instanceId=null) {
