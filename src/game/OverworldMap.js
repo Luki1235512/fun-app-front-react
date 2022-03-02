@@ -211,10 +211,11 @@ window.OverworldMaps = {
                 {
                     events: [
                         {type: "changeMap", map: "Kitchen"},
-                        // {type: "battle"}
+                        {type: "battle"}
                     ]
                 }
-            ]
+            ],
+
         },
     },
     Kitchen: {
