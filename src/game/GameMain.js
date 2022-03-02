@@ -1,6 +1,9 @@
 import './styles/GameMain.css'
 import './styles/TextMessage.css'
 import './styles/SceneTransition.css'
+import './styles/Battle.css'
+import './styles/Combatant.css'
+import './styles/SubmissionMenu.css'
 import React from "react";
 import {Overworld} from "./Overworld";
 

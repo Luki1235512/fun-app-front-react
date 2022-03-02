@@ -1,6 +1,7 @@
 import {TextMessage} from "./TextMessage";
 import utils from "./utils";
 import {SceneTransition} from "./SceneTransition";
+import {Battle} from "./battle/Battle";
 
 export class OverworldEvent {
 
@@ -71,6 +72,15 @@ export class OverworldEvent {
             resolve()
             sceneTransition.fadeOut()
         })
+    }
+
+    battle(resolve) {
+        const battle = new Battle({
+            onComplete: () => {
+                resolve()
+            }
+        })
+        battle.init(document.querySelector(".game-container"))
     }
 
     init() {
