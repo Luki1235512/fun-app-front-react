@@ -131,7 +131,7 @@ window.OverworldMaps = {
                         events: [
                             {type: "textMessage", text: "HELLO THERE!", faceHero: "npcA"},
                             {type: "textMessage", text: "I'm busy..."},
-                            {who: "hero", type: "walk", direction: "left"}
+                            // {who: "hero", type: "walk", direction: "left"}
                         ]
                     }
                 ]
@@ -210,10 +210,12 @@ window.OverworldMaps = {
             [utils.asGridCoord(5, 10)]: [
                 {
                     events: [
-                        {type: "changeMap", map: "Kitchen"}
+                        {type: "changeMap", map: "Kitchen"},
+                        {type: "battle"}
                     ]
                 }
-            ]
+            ],
+
         },
     },
     Kitchen: {
