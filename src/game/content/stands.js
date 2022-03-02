@@ -39,7 +39,7 @@ const Stands = window.Stands = {
         type: StandTypes.grass,
         src: g001URL,
         icon: grassURL,
-        actions: ["tackledStatus", "damage1", "furiousStatus"]
+        actions: ["damage1", "tackledStatus", "furiousStatus"]
     },
     "r001": {
         name: "Emerald Man",

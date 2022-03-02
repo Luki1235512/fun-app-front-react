@@ -51,7 +51,7 @@ export default class KeyboardMenu {
 
         this.descriptionElement = document.createElement("div")
         this.descriptionElement.classList.add("DescriptionBox")
-        this.descriptionElement.innerHTML = (`<p>I will provide information</p>`)
+        this.descriptionElement.innerHTML = (`<p>Info</p>`)
         this.descriptionElementText = this.descriptionElement.querySelector("p")
     }
 
