@@ -1,5 +1,6 @@
 import {TextMessage} from "../TextMessage";
 import SubmissionMenu from "./SubmissionMenu";
+import utils from "../utils";
 
 export default class BattleEvent {
     constructor(event, battle) {
@@ -21,6 +22,19 @@ export default class BattleEvent {
             }
         })
         message.init(this.battle.element)
+    }
+
+    async stateChange(resolve) {
+        const {caster, target, damage} = this.event
+        if (damage) {
+            target.update({
+                hp: target.hp - damage
+            })
+            target.standElement.classList.add("battle-damage-blink")
+        }
+        await utils.wait(600)
+        target.standElement.classList.remove("battle-damage-blink")
+        resolve()
     }
 
     submissionMenu(resolve) {
