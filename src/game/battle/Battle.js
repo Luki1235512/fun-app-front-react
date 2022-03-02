@@ -2,6 +2,8 @@ import heroURL from '../images/characters/people/hero.png'
 import npc3URL from '../images/characters/people/npc3.png'
 import {Combatant} from "./Combatant";
 import Stands from '../content/stands'
+import TurnCycle from "./TurnCycle";
+import BattleEvent from "./BattleEvent";
 
 
 export class Battle {
@@ -65,6 +67,18 @@ export class Battle {
             combatant.id = key
             combatant.init(this.element)
         })
+
+        this.turnCycle = new TurnCycle({
+            battle: this,
+            onNewEvent: event => {
+                return new Promise(resolve => {
+                    const battleEvent = new BattleEvent(event, this)
+                    battleEvent.init(resolve)
+                })
+            }
+        })
+
+        this.turnCycle.init()
     }
 
 }

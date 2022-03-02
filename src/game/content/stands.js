@@ -6,46 +6,48 @@ import grassURL from '../images/icons/grass.png'
 import rockURL from '../images/icons/rock.png'
 
 
-    const StandTypes = window.StandTypes = {
-        normal: "normal",
-        fire: "fire",
-        fighting: "fighting",
-        water: "water",
-        flying: "flying",
-        grass: "grass",
-        poison: "poison",
-        electric: "electric",
-        ground: "ground",
-        psychic: "psychic",
-        rock: "rock",
-        ice: "ice",
-        bug: "bug",
-        dragon: "dragon",
-        ghost: "ghost",
-        dark: "dark",
-        steel: "steel",
-        fairy: "fairy"
+const StandTypes = window.StandTypes = {
+    normal: "normal",
+    fire: "fire",
+    fighting: "fighting",
+    water: "water",
+    flying: "flying",
+    grass: "grass",
+    poison: "poison",
+    electric: "electric",
+    ground: "ground",
+    psychic: "psychic",
+    rock: "rock",
+    ice: "ice",
+    bug: "bug",
+    dragon: "dragon",
+    ghost: "ghost",
+    dark: "dark",
+    steel: "steel",
+    fairy: "fairy"
+}
+const Stands = window.Stands = {
+    "w001": {
+        name: "Venomous Water",
+        type: StandTypes.water,
+        src: w001URL,
+        icon: waterURL,
+        actions: ["damage1"]
+    },
+    "g001": {
+        name: "Banana Thing",
+        type: StandTypes.grass,
+        src: g001URL,
+        icon: grassURL,
+        actions: ["damage1"]
+    },
+    "r001": {
+        name: "Emerald Man",
+        type: StandTypes.rock,
+        src: r001URL,
+        icon: rockURL,
+        actions: ["damage1"]
     }
+}
 
-    const Stands = window.Stands = {
-        "w001": {
-            name: "Venomous Water",
-            type: StandTypes.water,
-            src: w001URL,
-            icon: waterURL
-        },
-        "g001": {
-            name: "Banana Thing",
-            type: StandTypes.grass,
-            src: g001URL,
-            icon: grassURL
-        },
-        "r001": {
-            name: "Emerald Man",
-            type: StandTypes.rock,
-            src: r001URL,
-            icon: rockURL
-        }
-    }
-
-    export default Stands
+export default Stands
