@@ -115,7 +115,7 @@
     margin: 0;
 }
 
-.Combatant_status[data-status="saucy"] {
+.Combatant_status[data-status="furious"] {
     color: red;
 }
 

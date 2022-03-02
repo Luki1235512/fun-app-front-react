@@ -48,9 +48,6 @@ export class Combatant {
         this.standElement.setAttribute("alt", this.name)
         this.standElement.setAttribute("data-team", this.team)
 
-        this.hudElement.setAttribute("data-active", this.isActive)
-        this.standElement.setAttribute("data-active", this.isActive)
-
         this.hpFills = this.hudElement.querySelectorAll(".Combatant_life-container > rect")
         this.xpFills = this.hudElement.querySelectorAll(".Combatant_xp-container > rect")
     }
@@ -60,10 +57,32 @@ export class Combatant {
             this[key] = changes[key]
         })
 
+        this.hudElement.setAttribute("data-active", this.isActive)
+        this.standElement.setAttribute("data-active", this.isActive)
+
         this.hpFills.forEach(rect => rect.style.width = `${this.hpPercent}%`)
         this.xpFills.forEach(rect => rect.style.width = `${this.xpPercent}%`)
         this.hudElement.querySelector(".Combatant_level").innerText = this.level
 
+        const statusElement = this.hudElement.querySelector(".Combatant_status")
+        if (this.status) {
+            statusElement.innerText = this.status.type
+            statusElement.style.display = "block"
+        } else {
+            statusElement.innerText = ""
+            statusElement.style.display = "none"
+        }
+
+    }
+
+    getPostEvents() {
+        if (this.status?.type === "furious") {
+            return [
+                {type: "textMessage", text: "Yare Yare Daze"},
+                {type: "stateChange", recover: 5, onCaster: true}
+            ]
+        }
+        return []
     }
 
     init(container) {
