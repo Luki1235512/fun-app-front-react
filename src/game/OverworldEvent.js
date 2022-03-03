@@ -2,6 +2,7 @@ import {TextMessage} from "./TextMessage";
 import utils from "./utils";
 import {SceneTransition} from "./SceneTransition";
 import {Battle} from "./battle/Battle";
+import Enemies from "./content/enemies";
 
 export class OverworldEvent {
 
@@ -76,6 +77,7 @@ export class OverworldEvent {
 
     battle(resolve) {
         const battle = new Battle({
+            enemy: Enemies[this.event.enemyId],
             onComplete: () => {
                 resolve()
             }
