@@ -7,6 +7,7 @@ import BattleEvent from "./BattleEvent";
 import Team from "./Team";
 import playerState from "../state/PlayerState";
 import Enemies from "../content/enemies";
+import utils from "../utils";
 
 export class Battle {
     constructor({enemy, onComplete}) {
@@ -114,6 +115,7 @@ export class Battle {
                         return !this.usedInstanceIds[item.instanceId]
                     })
 
+                    utils.emitEvent("PlayerStateUpdated")
                 }
 
                 this.element.remove()
