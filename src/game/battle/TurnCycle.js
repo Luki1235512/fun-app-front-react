@@ -136,6 +136,10 @@ export default class  TurnCycle {
     }
 
     async init() {
+        await this.onNewEvent({
+            type: "textMessage",
+            text: `Starting battle with ${this.battle.enemy.name}`
+        })
         this.turn()
     }
 
