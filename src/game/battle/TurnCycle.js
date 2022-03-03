@@ -54,6 +54,23 @@ export default class  TurnCycle {
             })
         }
 
+        if (submission.target.team === "enemy") {
+
+            const playerActiveStandId = this.battle.activeCombatants.player
+            const xp = submission.target.givesXp
+
+            await this.onNewEvent({
+                type: "textMessage",
+                text: `Gained ${xp} XP`
+            })
+
+            await this.onNewEvent({
+                type: "giveXp",
+                xp,
+                combatant: this.battle.combatants[playerActiveStandId]
+            })
+        }
+
         const winner = this.getWinningTeam()
         if (winner) {
             await this.onNewEvent({
