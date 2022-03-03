@@ -5,6 +5,7 @@ import './styles/Battle.css'
 import './styles/Combatant.css'
 import './styles/SubmissionMenu.css'
 import './styles/KeyboardMenu.css'
+import './styles/Team.css'
 import React from "react";
 import {Overworld} from "./Overworld";
 
