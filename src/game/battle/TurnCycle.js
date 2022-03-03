@@ -1,7 +1,8 @@
 export default class  TurnCycle {
-    constructor({battle, onNewEvent}) {
+    constructor({battle, onNewEvent, onWinner}) {
         this.battle = battle
         this.onNewEvent = onNewEvent
+        this.onWinner = onWinner
         this.currentTeam = "player"
     }
 
@@ -31,6 +32,7 @@ export default class  TurnCycle {
         }
 
         if (submission.instanceId) {
+            this.battle.usedInstanceIds[submission.instanceId] = true
             this.battle.items = this.battle.items.filter(i => i.instanceId !== submission.instanceId)
         }
 
@@ -52,23 +54,22 @@ export default class  TurnCycle {
             await  this.onNewEvent({
                 type: "textMessage", text: `${submission.target.name} is defeated!`
             })
-        }
+            if (submission.target.team === "enemy") {
 
-        if (submission.target.team === "enemy") {
+                const playerActiveStandId = this.battle.activeCombatants.player
+                const xp = submission.target.givesXp
 
-            const playerActiveStandId = this.battle.activeCombatants.player
-            const xp = submission.target.givesXp
+                await this.onNewEvent({
+                    type: "textMessage",
+                    text: `Gained ${xp} XP`
+                })
 
-            await this.onNewEvent({
-                type: "textMessage",
-                text: `Gained ${xp} XP`
-            })
-
-            await this.onNewEvent({
-                type: "giveXp",
-                xp,
-                combatant: this.battle.combatants[playerActiveStandId]
-            })
+                await this.onNewEvent({
+                    type: "giveXp",
+                    xp,
+                    combatant: this.battle.combatants[playerActiveStandId]
+                })
+            }
         }
 
         const winner = this.getWinningTeam()
@@ -77,6 +78,7 @@ export default class  TurnCycle {
                 type: "textMessage",
                 text: "Winner!",
             })
+            this.onWinner(winner)
             return
         }
 

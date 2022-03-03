@@ -129,9 +129,9 @@ window.OverworldMaps = {
                 talking: [
                     {
                         events: [
-                            {type: "textMessage", text: "HELLO THERE!", faceHero: "npcA"},
-                            {type: "textMessage", text: "I'm busy..."},
-                            // {who: "hero", type: "walk", direction: "left"}
+                            {type: "textMessage", text: "I'm busy...", faceHero: "npcA"},
+                            // {type: "textMessage", text: ""},
+                            {type: "battle", enemyId: "julie"}
                         ]
                     }
                 ]
@@ -140,6 +140,14 @@ window.OverworldMaps = {
                 x: utils.withGrid(8),
                 y: utils.withGrid(5),
                 src: npc2URL,
+                talking: [
+                    {
+                        events: [
+                            {type: "textMessage", text: "ㅋㅋㅋㅋ"},
+                            {type: "battle", enemyId: "george"}
+                        ]
+                    }
+                ]
                 // behaviorLoop: [
                 //     {type: "walk", direction: "left"},
                 //     {type: "stand", direction: "up", time: 800},

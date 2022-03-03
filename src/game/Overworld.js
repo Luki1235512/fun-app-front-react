@@ -1,6 +1,7 @@
 import {OverworldMap} from "./OverworldMap";
 import {DirectionInput} from "./DirectionInput";
 import {KeyPressListener} from "./KeyPressListener";
+import Enemies from "./content/enemies";
 
 export class Overworld {
 
@@ -75,11 +76,11 @@ export class Overworld {
 
         this.startGameLoop()
 
-        this.map.startCutscene([
-            {type: "battle"}
-            // {type: "changeMap", map: "DemoRoom"}
-            // {type: "textMessage", text: "This is the very first message!"},
-        ])
+        // this.map.startCutscene([
+        //     {type: "battle", enemyId: "julie"}
+        //     // {type: "changeMap", map: "DemoRoom"}
+        //     // {type: "textMessage", text: "This is the very first message!"},
+        // ])
 
     }
 }

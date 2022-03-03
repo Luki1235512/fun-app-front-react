@@ -5,6 +5,7 @@ export class Combatant {
         Object.keys(config).forEach(key => {
             this[key] = config[key]
         })
+        this.hp = typeof(this.hp) === "undefined" ? this.maxHp : this.hp
         this.battle = battle
     }
 
