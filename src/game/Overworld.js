@@ -1,6 +1,8 @@
 import {OverworldMap} from "./OverworldMap";
 import {DirectionInput} from "./DirectionInput";
 import {KeyPressListener} from "./KeyPressListener";
+import Enemies from "./content/enemies";
+import Hud from "./Hud";
 
 export class Overworld {
 
@@ -62,9 +64,10 @@ export class Overworld {
     }
 
     init() {
+        this.hud = new Hud()
+        this.hud.init(document.querySelector(".game-container"))
 
         this.startMap(window.OverworldMaps.DemoRoom)
-        // console.log(this.map.walls)
 
         this.bindActionInput()
         this.bindHeroPositionCheck()
@@ -74,12 +77,5 @@ export class Overworld {
         this.directionInput.direction()
 
         this.startGameLoop()
-
-        // this.map.startCutscene([
-        //     {type: "battle"}
-        //     // {type: "changeMap", map: "DemoRoom"}
-        //     // {type: "textMessage", text: "This is the very first message!"},
-        // ])
-
     }
 }
