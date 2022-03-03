@@ -120,6 +120,12 @@ export default class BattleEvent {
                 amount -= 1
                 combatant.xp += 1
 
+                if (combatant.xp === combatant.maxXp) {
+                    combatant.xp = 0
+                    combatant.maxXp = 100
+                    combatant.level += 1
+                }
+
                 combatant.update()
                 requestAnimationFrame(step)
                 return
