@@ -219,6 +219,7 @@ window.OverworldMaps = {
                 {
                     events: [
                         {type: "changeMap", map: "Kitchen"},
+                        // {type: "battle"}
                     ]
                 }
             ],
@@ -241,8 +242,7 @@ window.OverworldMaps = {
                 talking: [
                     {
                         events: [
-                            // {type: "textMessage", text: "You made it!", faceHero: ["npcA"]}
-                            {type: "battle"}
+                            {type: "textMessage", text: "You made it!", faceHero: ["npcA"]}
                         ]
                     }
                 ]
@@ -301,7 +301,7 @@ window.OverworldMaps = {
                         {type: "changeMap", map: "DemoRoom"}
                     ]
                 }
-            ],
+            ]
         }
     }
 }
