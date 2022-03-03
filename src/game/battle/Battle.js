@@ -33,7 +33,7 @@ export class Battle {
             "enemy1": new Combatant({
                 ...Stands.g001,
                 team: "enemy",
-                hp: 20,
+                hp: 1,
                 maxHp: 50,
                 xp: 20,
                 maxXp: 100,

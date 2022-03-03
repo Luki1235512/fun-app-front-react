@@ -47,6 +47,38 @@ export default class  TurnCycle {
             await this.onNewEvent(event)
         }
 
+        const targetDead = submission.target.hp <= 0
+        if (targetDead) {
+            await  this.onNewEvent({
+                type: "textMessage", text: `${submission.target.name} is defeated!`
+            })
+        }
+
+        const winner = this.getWinningTeam()
+        if (winner) {
+            await this.onNewEvent({
+                type: "textMessage",
+                text: "Winner!",
+            })
+            return
+        }
+
+
+        if (targetDead) {
+            const replacement = await this.onNewEvent({
+                type: "replacementMenu",
+                team: submission.target.team
+            })
+            await this.onNewEvent({
+                type: "replace",
+                replacement: replacement
+            })
+            await this.onNewEvent({
+                type: "textMessage",
+                text: `${replacement.name} appears!`
+            })
+        }
+
         const postEvents = caster.getPostEvents()
         for (let i = 0; i < postEvents.length; i++) {
             const event = {
@@ -70,6 +102,18 @@ export default class  TurnCycle {
     nextTurn() {
         this.currentTeam = this.currentTeam === "player" ? "enemy" : "player"
         this.turn()
+    }
+
+    getWinningTeam() {
+        let aliveTeams = {}
+        Object.values(this.battle.combatants).forEach(c => {
+            if (c.hp > 0) {
+                aliveTeams[c.team] = true
+            }
+        })
+        if (!aliveTeams["player"]) {return "enemy"}
+        if (!aliveTeams["enemy"]) {return "player"}
+        return null
     }
 
     async init() {

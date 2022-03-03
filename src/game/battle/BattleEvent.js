@@ -2,6 +2,7 @@ import {TextMessage} from "../TextMessage";
 import SubmissionMenu from "./SubmissionMenu";
 import utils from "../utils";
 import BattleAnimations from "./BattleAnimations";
+import ReplacementMenu from "./ReplacementMenu";
 
 export default class BattleEvent {
     constructor(event, battle) {
@@ -72,6 +73,18 @@ export default class BattleEvent {
             }),
             onComplete: submission => {
                 resolve(submission)
+            }
+        })
+        menu.init(this.battle.element)
+    }
+
+    replacementMenu(resolve) {
+        const menu = new ReplacementMenu({
+            replacements: Object.values(this.battle.combatants).filter(c => {
+                return c.team === this.event.team && c.hp > 0
+            }),
+            onComplete: replacement => {
+                resolve(replacement)
             }
         })
         menu.init(this.battle.element)
