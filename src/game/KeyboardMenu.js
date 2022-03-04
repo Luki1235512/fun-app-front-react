@@ -2,11 +2,12 @@ import {KeyPressListener} from "./KeyPressListener";
 
 export default class KeyboardMenu {
 
-    constructor() {
+    constructor(config={}) {
         this.options = []
         this.up = null
         this.down = null
         this.prevFocus = null
+        this.descriptionContainer = config.descriptionContainer || null
     }
 
     setOptions(options) {
@@ -65,8 +66,9 @@ export default class KeyboardMenu {
     }
 
     init(container) {
-        this.createElement()
-        container.appendChild(this.descriptionElement)
+        this.createElement();
+        // (this.descriptionContainer || container).appendChild(this.descriptionElement)
+        (this.descriptionContainer || container).appendChild(this.descriptionElement)
         container.appendChild(this.element)
 
         this.up =  new KeyPressListener("ArrowUp", () => {
