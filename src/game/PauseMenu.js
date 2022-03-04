@@ -1,6 +1,8 @@
 import {KeyPressListener} from "./KeyPressListener";
 import utils from "./utils";
 import KeyboardMenu from "./KeyboardMenu";
+import Stands from "./content/stands";
+import playerState from "./state/PlayerState";
 
 export class PauseMenu {
     constructor({onComplete}) {
@@ -9,7 +11,21 @@ export class PauseMenu {
 
     getOptions(pageKey) {
         if (pageKey === "root") {
+
+            const lineupStands = playerState.lineup.map(id => {
+                const {standId} = playerState.stands[id]
+                const base = Stands[standId]
+                return {
+                    label: base.name,
+                    description: base.description,
+                    handler: () => {
+                        this.keyboardMenu.setOptions(this.getOptions(id))
+                    }
+                }
+            })
+
             return [
+                ...lineupStands,
                 {
                     label: "Save",
                     description: "Save your progress",
@@ -26,7 +42,38 @@ export class PauseMenu {
                 }
             ]
         }
-        return []
+
+        const unequipped = Object.keys(playerState.stands).filter(id => {
+            return playerState.lineup.indexOf(id) === -1
+        }).map(id => {
+            const {standId} = playerState.stands[id]
+            const base = Stands[standId]
+            return {
+                label: `Swap for ${base.name}`,
+                description : base.description,
+                handler: () => {
+
+                }
+            }
+        })
+
+        return [
+            ...unequipped,
+            {
+                label: "Move to front",
+                description: "Move this pizza to the front of the list",
+                handler: () => {
+
+                }
+            },
+            {
+                label: "Back",
+                description: "Back to root menu",
+                handler: () => {
+                    this.keyboardMenu.setOptions(this.getOptions("root"))
+                }
+            }
+        ]
     }
 
     createElement() {
