@@ -1,3 +1,5 @@
+import utils from "../utils";
+
 class PlayerState {
 
     constructor() {
@@ -19,16 +21,42 @@ class PlayerState {
                 maxXp: 100,
                 level: 1,
                 status: null
+            },
+            "s3": {
+                standId: "f001",
+                hp: 50,
+                maxHp: 50,
+                xp: 75,
+                maxXp: 100,
+                level: 1,
+                status: null
             }
         }
         this.lineup = ["s1", "s2"]
         this.items = [
-            // {actionId: "item_recoverStatus", instanceId: "p1", team: "player"},
-            // {actionId: "item_recoverStatus", instanceId: "p2", team: "player"},
             {actionId: "item_recoverHp", instanceId: "item1"},
+            {actionId: "item_recoverHp", instanceId: "item2"},
+            {actionId: "item_recoverHp", instanceId: "item3"},
         ]
+        this.storyFlags = {
+            // TALKED_TO_GEORGE: true
+        }
+    }
+
+    swapLineup(oldId, incomingId) {
+        const oldIndex = this.lineup.indexOf(oldId)
+        this.lineup[oldIndex] = incomingId
+        utils.emitEvent("LineupChanged")
+    }
+
+    moveToFront(futureFontId) {
+        this.lineup = this.lineup.filter(id => id !== futureFontId)
+        this.lineup.unshift(futureFontId)
+        utils.emitEvent("LineupChanged")
     }
 }
+
+
 
 const playerState = window.playerState = new PlayerState();
 

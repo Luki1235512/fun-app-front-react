@@ -8,6 +8,7 @@ import npc3URL from './images/characters/people/npc3.png'
 import utils from "./utils";
 import {Person} from "./Person";
 import {OverworldEvent} from "./OverworldEvent";
+import playerState from "./state/PlayerState";
 
 export class OverworldMap {
 
@@ -25,6 +26,7 @@ export class OverworldMap {
         this.upperImage.src = config.upperSrc
 
         this.isCutscenePlaying = false
+        this.isPaused = false
     }
 
     drawLowerImage(ctx, cameraPerson) {
@@ -62,7 +64,10 @@ export class OverworldMap {
                 event: events[i],
                 map: this,
             })
-            await eventHandler.init()
+            const result = await eventHandler.init()
+            if (result === "LOST_BATTLE") {
+                break
+            }
         }
 
         this.isCutscenePlaying = false
@@ -78,7 +83,14 @@ export class OverworldMap {
         })
         // console.log({match})
         if (!this.isCutscenePlaying && match && match.talking.length) {
-            this.startCutscene(match.talking[0].events)
+
+            const relevantScenario = match.talking.find(scenerio => {
+                return (scenerio.required || []).every(sf => {
+                    return playerState.storyFlags[sf]
+                })
+            })
+
+            relevantScenario && this.startCutscene(relevantScenario.events)
         }
     }
 
@@ -128,10 +140,17 @@ window.OverworldMaps = {
                 ],
                 talking: [
                     {
+                        required: ["TALKED_TO_GEORGE"],
                         events: [
-                            {type: "textMessage", text: "I'm busy...", faceHero: "npcA"},
-                            // {type: "textMessage", text: ""},
-                            {type: "battle", enemyId: "julie"}
+                            {type: "textMessage", text: "George is so cool", faceHero: "npcA"}
+                        ]
+                    },
+                    {
+                        events: [
+                            {type: "textMessage", text: "Can't you see I'm busy...?", faceHero: "npcA"},
+                            {type: "battle", enemyId: "julie"},
+                            {type: "addStoryFlag", flag: "DEFEATED_JULIE"},
+                            {type: "textMessage", text: "UGH!", faceHero: "npcA"},
                         ]
                     }
                 ]
@@ -144,17 +163,11 @@ window.OverworldMaps = {
                     {
                         events: [
                             {type: "textMessage", text: "ㅋㅋㅋㅋ"},
+                            {type: "addStoryFlag", flag: "TALKED_TO_GEORGE"},
                             {type: "battle", enemyId: "george"}
                         ]
                     }
                 ]
-                // behaviorLoop: [
-                //     {type: "walk", direction: "left"},
-                //     {type: "stand", direction: "up", time: 800},
-                //     {type: "walk", direction: "up"},
-                //     {type: "walk", direction: "right"},
-                //     {type: "walk", direction: "down"},
-                // ]
             }),
         },
         walls: {

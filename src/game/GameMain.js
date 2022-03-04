@@ -7,6 +7,7 @@ import './styles/SubmissionMenu.css'
 import './styles/KeyboardMenu.css'
 import './styles/Team.css'
 import './styles/Hud.css'
+import './styles/Menus.css'
 import React from "react";
 import {Overworld} from "./Overworld";
 
