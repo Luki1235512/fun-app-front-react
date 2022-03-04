@@ -163,8 +163,8 @@ window.OverworldMaps = {
                     {
                         events: [
                             {type: "textMessage", text: "ㅋㅋㅋㅋ"},
-                            {type: "addStoryFlag", flag: "TALKED_TO_GEORGE"}
-                            // {type: "battle", enemyId: "george"}
+                            {type: "addStoryFlag", flag: "TALKED_TO_GEORGE"},
+                            {type: "battle", enemyId: "george"}
                         ]
                     }
                 ]

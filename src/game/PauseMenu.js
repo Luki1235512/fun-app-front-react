@@ -28,7 +28,7 @@ export class PauseMenu {
                 ...lineupStands,
                 {
                     label: "Save",
-                    description: "Save your progress",
+                    description: "Save your progress (not working yet)",
                     handler: () => {
 
                     }
