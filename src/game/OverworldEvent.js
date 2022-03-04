@@ -79,8 +79,8 @@ export class OverworldEvent {
     battle(resolve) {
         const battle = new Battle({
             enemy: Enemies[this.event.enemyId],
-            onComplete: () => {
-                resolve()
+            onComplete: (didWin) => {
+                resolve(didWin ? "WON_BATTLE" : "LOST_BATTLE")
             }
         })
         battle.init(document.querySelector(".game-container"))
@@ -96,6 +96,11 @@ export class OverworldEvent {
             }
         })
         menu.init(document.querySelector(".game-container"))
+    }
+
+    addStoryFlag(resolve) {
+        window.playerState.storyFlags[this.event.flag] = true
+        resolve()
     }
 
     init() {

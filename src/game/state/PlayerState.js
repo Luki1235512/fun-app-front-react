@@ -38,6 +38,9 @@ class PlayerState {
             {actionId: "item_recoverHp", instanceId: "item2"},
             {actionId: "item_recoverHp", instanceId: "item3"},
         ]
+        this.storyFlags = {
+            // TALKED_TO_GEORGE: true
+        }
     }
 
     swapLineup(oldId, incomingId) {
