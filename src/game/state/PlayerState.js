@@ -1,3 +1,5 @@
+import utils from "../utils";
+
 class PlayerState {
 
     constructor() {
@@ -37,7 +39,19 @@ class PlayerState {
             {actionId: "item_recoverHp", instanceId: "item3"},
         ]
     }
+
+    swapLineup(oldId, incomingId) {
+        const oldIndex = this.lineup.indexOf(oldId)
+        this.lineup[oldIndex] = incomingId
+        utils.emitEvent("LineupChanged")
+    }
+
+    moveToFront() {
+        utils.emitEvent("LineupChanged")
+    }
 }
+
+
 
 const playerState = window.playerState = new PlayerState();
 

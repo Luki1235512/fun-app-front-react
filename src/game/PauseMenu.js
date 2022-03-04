@@ -52,7 +52,8 @@ export class PauseMenu {
                 label: `Swap for ${base.name}`,
                 description : base.description,
                 handler: () => {
-
+                    playerState.swapLineup(pageKey, id)
+                    this.keyboardMenu.setOptions(this.getOptions("root"))
                 }
             }
         })
