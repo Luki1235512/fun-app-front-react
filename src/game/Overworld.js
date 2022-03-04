@@ -35,9 +35,11 @@ export class Overworld {
 
             this.map.drawUpperImage(this.ctx, cameraPerson)
 
-            requestAnimationFrame(() => {
-                step()
-            })
+            if (!this.map.isPaused) {
+                requestAnimationFrame(() => {
+                    step()
+                })
+            }
         }
         step()
     }
@@ -45,6 +47,13 @@ export class Overworld {
     bindActionInput() {
         new KeyPressListener("Enter", () => {
             this.map.checkForActionCutscene()
+        })
+        new KeyPressListener("Escape", () => {
+            if (!this.map.isCutscenePlaying) {
+                this.map.startCutscene([
+                    {type: "pause"}
+                ])
+            }
         })
     }
 
