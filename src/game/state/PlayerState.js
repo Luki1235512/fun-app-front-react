@@ -46,7 +46,9 @@ class PlayerState {
         utils.emitEvent("LineupChanged")
     }
 
-    moveToFront() {
+    moveToFront(futureFontId) {
+        this.lineup = this.lineup.filter(id => id !== futureFontId)
+        this.lineup.unshift(futureFontId)
         utils.emitEvent("LineupChanged")
     }
 }
