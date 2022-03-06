@@ -3,6 +3,7 @@ import {DirectionInput} from "./DirectionInput";
 import {KeyPressListener} from "./KeyPressListener";
 import Enemies from "./content/enemies";
 import Hud from "./Hud";
+import {Progress} from "./Progress";
 
 export class Overworld {
 
@@ -76,9 +77,18 @@ export class Overworld {
             this.map.gameObjects.hero.y = heroInitialState.y
             this.map.gameObjects.hero.direction = heroInitialState.direction
         }
+
+        this.progress.mapId = mapConfig.id
+        this.progress.startingHeroX = this.map.gameObjects.hero.x
+        this.progress.startingHeroY = this.map.gameObjects.hero.y
+        this.progress.startingHeroDirection = this.map.gameObjects.hero.direction
+
     }
 
     init() {
+
+        this.progress = new Progress()
+
         this.hud = new Hud()
         this.hud.init(document.querySelector(".game-container"))
 
