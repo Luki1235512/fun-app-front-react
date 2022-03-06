@@ -5,7 +5,8 @@ import Stands from "./content/stands";
 import playerState from "./state/PlayerState";
 
 export class PauseMenu {
-    constructor({onComplete}) {
+    constructor({progress, onComplete}) {
+        this.progress = progress
         this.onComplete = onComplete
     }
 
@@ -30,7 +31,8 @@ export class PauseMenu {
                     label: "Save",
                     description: "Save your progress (not working yet)",
                     handler: () => {
-
+                        this.progress.save()
+                        this.close()
                     }
                 },
                 {

@@ -1,7 +1,7 @@
 import demoLowerURL from './images/maps/DemoLower.png'
 import demoUpperURL from './images/maps/DemoUpper.png'
-import kitchenLowerURL from './images/maps/KitchenLower.png'
-import kitchenUpperURL from './images/maps/KitchenUpper.png'
+import labLowerURL from './images/maps/labLower.png'
+import labUpperURL from './images/maps/labUpper.png'
 import npc1URL from './images/characters/people/npc1.png'
 import npc2URL from './images/characters/people/npc2.png'
 import npc3URL from './images/characters/people/npc3.png'
@@ -120,6 +120,7 @@ export class OverworldMap {
 
 window.OverworldMaps = {
     DemoRoom: {
+        id: "DemoRoom",
         lowerSrc: demoLowerURL,
         upperSrc: demoUpperURL,
         gameObjects: {
@@ -231,22 +232,28 @@ window.OverworldMaps = {
             [utils.asGridCoord(5, 10)]: [
                 {
                     events: [
-                        {type: "changeMap", map: "Kitchen"},
-                        // {type: "battle"}
+                        {
+                            type: "changeMap",
+                            map: "Lab",
+                            x: utils.withGrid(5),
+                            y: utils.withGrid(10),
+                            direction: "up"
+                        },
                     ]
                 }
             ],
 
         },
     },
-    Kitchen: {
-        lowerSrc: kitchenLowerURL,
-        upperSrc: kitchenUpperURL,
+    Lab: {
+        id: "Lab",
+        lowerSrc: labLowerURL,
+        upperSrc: labUpperURL,
         gameObjects: {
             hero: new Person({
                 isPlayerControlled: true,
                 x: utils.withGrid(5),
-                y: utils.withGrid(9)
+                y: utils.withGrid(10)
             }),
             npcA: new Person({
                 x: utils.withGrid(10),
@@ -311,7 +318,13 @@ window.OverworldMaps = {
             [utils.asGridCoord(5, 10)]: [
                 {
                     events: [
-                        {type: "changeMap", map: "DemoRoom"}
+                        {
+                            type: "changeMap",
+                            map: "DemoRoom",
+                            x: utils.withGrid(5),
+                            y: utils.withGrid(10),
+                            direction: "up"
+                        }
                     ]
                 }
             ]
