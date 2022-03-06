@@ -1,7 +1,7 @@
 import demoLowerURL from './images/maps/DemoLower.png'
 import demoUpperURL from './images/maps/DemoUpper.png'
-import kitchenLowerURL from './images/maps/KitchenLower.png'
-import kitchenUpperURL from './images/maps/KitchenUpper.png'
+import labLowerURL from './images/maps/labLower.png'
+import labUpperURL from './images/maps/labUpper.png'
 import npc1URL from './images/characters/people/npc1.png'
 import npc2URL from './images/characters/people/npc2.png'
 import npc3URL from './images/characters/people/npc3.png'
@@ -234,7 +234,7 @@ window.OverworldMaps = {
                     events: [
                         {
                             type: "changeMap",
-                            map: "Kitchen",
+                            map: "Lab",
                             x: utils.withGrid(5),
                             y: utils.withGrid(10),
                             direction: "up"
@@ -244,10 +244,10 @@ window.OverworldMaps = {
             ]
         },
     },
-    Kitchen: {
-        id: "Kitchen",
-        lowerSrc: kitchenLowerURL,
-        upperSrc: kitchenUpperURL,
+    Lab: {
+        id: "Lab",
+        lowerSrc: labLowerURL,
+        upperSrc: labUpperURL,
         gameObjects: {
             hero: new Person({
                 isPlayerControlled: true,
