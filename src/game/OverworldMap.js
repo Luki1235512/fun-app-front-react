@@ -120,6 +120,7 @@ export class OverworldMap {
 
 window.OverworldMaps = {
     DemoRoom: {
+        id: "DemoRoom",
         lowerSrc: demoLowerURL,
         upperSrc: demoUpperURL,
         gameObjects: {
@@ -231,21 +232,27 @@ window.OverworldMaps = {
             [utils.asGridCoord(5, 10)]: [
                 {
                     events: [
-                        {type: "changeMap", map: "Kitchen"},
-                        // {type: "battle"}
+                        {
+                            type: "changeMap",
+                            map: "Kitchen",
+                            x: utils.withGrid(5),
+                            y: utils.withGrid(10),
+                            direction: "up"
+                        },
                     ]
                 }
             ]
         },
     },
     Kitchen: {
+        id: "Kitchen",
         lowerSrc: kitchenLowerURL,
         upperSrc: kitchenUpperURL,
         gameObjects: {
             hero: new Person({
                 isPlayerControlled: true,
                 x: utils.withGrid(5),
-                y: utils.withGrid(9)
+                y: utils.withGrid(10)
             }),
             npcA: new Person({
                 x: utils.withGrid(10),
@@ -310,7 +317,13 @@ window.OverworldMaps = {
             [utils.asGridCoord(5, 10)]: [
                 {
                     events: [
-                        {type: "changeMap", map: "DemoRoom"}
+                        {
+                            type: "changeMap",
+                            map: "DemoRoom",
+                            x: utils.withGrid(5),
+                            y: utils.withGrid(10),
+                            direction: "up"
+                        }
                     ]
                 }
             ]
